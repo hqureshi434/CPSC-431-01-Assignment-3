@@ -136,12 +136,12 @@
     <body>
     <h1 style="text-align:center">AJAX Chat</h1>
     <div class="container">
-        <div class="form-group" style="padding: 6px;">
+        <div class="form-group" style="padding: 6px;" div id="myUser">
           <label for="userName">Username:</label>
           <input type="text" class="form-control" name="userName" id="userName">
           <button type="submit" class="btn btn-primary" id="startBtn" name="startBtn">Start</button>
         </div>
-         <div id= myMessage>
+         <div id= myMessage div class="toshow" style="display: none">
           <div class="panel panel-default">
               <div class="panel-heading">
                   <h2 class="panel-title">Let's Chat</h2>
@@ -162,17 +162,6 @@
           </div>
         </div>
     </div>
-    <script>
-      $(document).ready(function(){
-        $("#startBtn").click(function(){
-          $("myMessage").hide();
-        });
-        $("#startBtn").click(function () {
-          $("myMessage").show();
-        });
-      });
-    </script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!--<script src="//code.jquery.com/jquery-2.2.3.min.js"></script>-->
     <script src="client.js"></script>

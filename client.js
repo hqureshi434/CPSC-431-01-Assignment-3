@@ -46,7 +46,14 @@ $(document).on('ready', function() {
     
 });*/
 
-
+$(document).ready(function(){
+    $("#startBtn").click(function(){
+      $("#myUser").hide();
+    });
+    $("#startBtn").click(function () {
+      $("#myMessage").show();
+    });
+  });
 
 $('#sendMessageBtn').on('click', function(event) {
     event.preventDefault();

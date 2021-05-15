@@ -35,6 +35,19 @@ $(document).on('ready', function() {
     });
 });
 
+/*$('#startBtn').on('click', function(event) {
+    event.preventDefault();
+    var x = document.getElementById("myMessage");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+    
+});*/
+
+
+
 $('#sendMessageBtn').on('click', function(event) {
     event.preventDefault();
     

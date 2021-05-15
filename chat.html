@@ -128,33 +128,53 @@
             .panel-body {
               padding-right: 35px;
               padding-left: 35px;
-            }
-            
+              height: 65vh;
+              overflow: auto;
+            }  
         </style>
     </head>
     <body>
     <h1 style="text-align:center">AJAX Chat</h1>
     <div class="container">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2 class="panel-title">Let's Chat</h2>
-            </div>
-            <div class="panel-body" id="chatPanel">
-            </div>
-            <div class="panel-footer">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="chatMessage" placeholder="Send a message here..."/>
-                    <span class="input-group-btn">
-                        <button id="sendMessageBtn" class="btn btn-primary has-spinner" type="button">
-                            <span class="spinner"><i class="icon-spin icon-refresh"></i></span>
-                            Send
-                        </button>
-                    </span>
-                </div>
-            </div>
+        <div class="form-group" style="padding: 6px;">
+          <label for="userName">Username:</label>
+          <input type="text" class="form-control" name="userName" id="userName">
+          <button type="submit" class="btn btn-primary" id="startBtn" name="startBtn">Start</button>
         </div>
-    </div>    
-    <script src="//code.jquery.com/jquery-2.2.3.min.js"></script>
+         <div id= myMessage>
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h2 class="panel-title">Let's Chat</h2>
+              </div>
+              <div class="panel-body" id="chatPanel">
+              </div>
+              <div class="panel-footer">
+                  <div class="input-group">
+                      <input type="text" class="form-control" id="chatMessage" placeholder="Send a message here..."/>
+                      <span class="input-group-btn">
+                          <button id="sendMessageBtn" class="btn btn-primary has-spinner" type="button">
+                              <span class="spinner"><i class="icon-spin icon-refresh"></i></span>
+                              Send
+                          </button>
+                      </span>
+                  </div>
+              </div>  
+          </div>
+        </div>
+    </div>
+    <script>
+      $(document).ready(function(){
+        $("#startBtn").click(function(){
+          $("myMessage").hide();
+        });
+        $("#startBtn").click(function () {
+          $("myMessage").show();
+        });
+      });
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--<script src="//code.jquery.com/jquery-2.2.3.min.js"></script>-->
     <script src="client.js"></script>
     </body>
 </html>

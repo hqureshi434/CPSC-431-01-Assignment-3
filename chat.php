@@ -36,7 +36,7 @@ try {
            $stmt = $db->prepare($query);
            $stmt->execute();
            $stmt->bind_result($id, $message, $session_id, $date_created);
-           $result = get_result( $stmt);
+           $result = get_result($stmt);
            $newChats = [];
            while($chat = array_shift($result)) {
                
@@ -52,7 +52,7 @@ try {
 
            print json_encode([
                 'success' => true,
-		'messages' => $newChats
+		        'messages' => $newChats
            ]);
            exit;
         case 'send':

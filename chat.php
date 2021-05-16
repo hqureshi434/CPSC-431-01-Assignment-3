@@ -26,11 +26,6 @@ function get_result( $Statement ) {
     return $RESULT;
 }
 
-/*function insert_name(){
-    if(isset($_POST['startBtn']){
-
-    }
-}*/
 try { 
     $currentTime = time();
     $session_id = session_id();    

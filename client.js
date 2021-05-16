@@ -12,11 +12,11 @@ var pollServer = function() {
             
             if(this.sent_by == 'self') {
                 chatBubble = $('<div class="row bubble-sent pull-right">' + 
-                               this.message + 
+                              this.username + ": " + this.message + 
                                '</div><div class="clearfix"></div>');
             } else {
                 chatBubble = $('<div class="row bubble-recv">' + 
-                               this.message + 
+                               this.username + ": " + this.message + 
                                '</div><div class="clearfix"></div>');
             }
             
@@ -56,8 +56,7 @@ $('#sendMessageBtn').on('click', function(event) {
     }, function(result) {
         
         $('#sendMessageBtn').toggleClass('active');
-        
-        
+          
         if(!result.success) {
             alert("There was an error sending your message");
         } else {

@@ -35,17 +35,6 @@ $(document).on('ready', function() {
     });
 });
 
-/*$('#startBtn').on('click', function(event) {
-    event.preventDefault();
-    var x = document.getElementById("myMessage");
-    if (x.style.display === "block") {
-        x.style.display = "none";
-    } else {
-        x.style.display = "block";
-    }
-    
-});*/
-
 $(document).ready(function(){
     $("#startBtn").click(function(){
         $("#myUser").hide();
@@ -55,35 +44,15 @@ $(document).ready(function(){
     });
 });
 
-$('#startBtn').on('click', function(event) {
-    event.preventDefault();
-
-    var userName = $('#userName').val();
-
-    $.post('chat.php', {
-        'userName' : userName
-    }, function(result) {
-
-        $('#startBtn').toggleClass('active');
-        
-        
-        if(!result.success) {
-            alert("There was an error uploading your username");
-        } else {
-            console.log("Username sent!");
-            $('#userName').val('');
-        }
-    });
-});
-
-
 $('#sendMessageBtn').on('click', function(event) {
     event.preventDefault();
     
     var message = $('#chatMessage').val();
+    var userName = $('#userName').val();
     
     $.post('chat.php', {
-        'message' : message
+        'message' : message,
+        'userName' : userName
     }, function(result) {
         
         $('#sendMessageBtn').toggleClass('active');

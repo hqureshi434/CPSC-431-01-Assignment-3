@@ -1,4 +1,4 @@
-# CPSC 431-01, Spring 2021 - Assignment 3
+# CPSC 431-01, Spring 2021 - Assignment 2
 ## Project By: 
 * Adam Laviguer | adamlaviguer@csu.fullerton.edu
 * Hammda Qureshi | qureshi434@csu.fullerton.edu

@@ -48,12 +48,34 @@ $(document).on('ready', function() {
 
 $(document).ready(function(){
     $("#startBtn").click(function(){
-      $("#myUser").hide();
+        $("#myUser").hide();
     });
     $("#startBtn").click(function () {
-      $("#myMessage").show();
+        $("#myMessage").show();
     });
-  });
+});
+
+$('#startBtn').on('click', function(event) {
+    event.preventDefault();
+
+    var userName = $('#userName').val();
+
+    $.post('chat.php', {
+        'userName' : userName
+    }, function(result) {
+
+        $('#startBtn').toggleClass('active');
+        
+        
+        if(!result.success) {
+            alert("There was an error uploading your username");
+        } else {
+            console.log("Username sent!");
+            $('#userName').val('');
+        }
+    });
+});
+
 
 $('#sendMessageBtn').on('click', function(event) {
     event.preventDefault();

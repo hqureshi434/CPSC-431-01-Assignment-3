@@ -25,6 +25,12 @@ function get_result( $Statement ) {
     }
     return $RESULT;
 }
+
+/*function insert_name(){
+    if(isset($_POST['startBtn']){
+
+    }
+}*/
 try { 
     $currentTime = time();
     $session_id = session_id();    
@@ -56,11 +62,15 @@ try {
            ]);
            exit;
         case 'send':
+            $userName = isset($_POST['userName']) ? $_POST['userName'] : '';
+            $userName = strip_tags($userName); 
+
             $message = isset($_POST['message']) ? $_POST['message'] : '';            
             $message = strip_tags($message);
-            $query = "INSERT INTO chatlog (message, sent_by, date_created) VALUES(?, ?, ?)";
+
+            $query = "INSERT INTO chatlog (message, sent_by, date_created, username) VALUES(?, ?, ?, ?)";
             $stmt = $db->prepare($query);
-            $stmt->bind_param('ssi', $message, $session_id, $currentTime); 
+            $stmt->bind_param('ssis', $message, $session_id, $currentTime, $userName); 
             $stmt->execute(); 
             print json_encode(['success' => true]);
             exit;

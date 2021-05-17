@@ -63,53 +63,50 @@ try {
             $message = isset($_POST['message']) ? $_POST['message'] : ''; //Get the message from the message form           
             $message = strip_tags($message); //Strips and HTML and PHP tags from string
 
-            $findUserQuery = "SELECT username, color FROM chatlog WHERE username = '".$userName."'";
-            $queryResult = $db->query($findUserQuery);
+            $findUserQuery = "SELECT username, color FROM chatlog WHERE username = '".$userName."'"; //query to get username and color from the database
+            $queryResult = $db->query($findUserQuery); //run the query
 
-            if ($queryResult->num_rows > 0) {
+            if ($queryResult->num_rows > 0) { //if there is a username match, then use the color from the database
                 $row = $queryResult->fetch_assoc();
                 $color = $row["color"];
             }
-            else {
+            else { //else if there is no username match, then assign a random color from the 10 options below
                 $randomNum = rand(1,10); // random number from 1 to 10
                 switch($randomNum){
                     case 1:
-                    $color="#d98880"; // black
+                    $color="#d98880";
                     break;
                     case 2: 
-                    $color="#c39bd3";//Navy
+                    $color="#c39bd3";
                     break;
                     case 3:
-                    $color="#7fb3d5";//Purple
+                    $color="#7fb3d5";
                     break;
                     case 4:
-                    $color="#76d7c4";//Aqua
+                    $color="#76d7c4";
                     break;
                     case 5:
-                    $color="#7dcea0";//Yellow
+                    $color="#7dcea0";
                     break;
                     case 6:
-                    $color="#f7dc6f";//Teal
+                    $color="#f7dc6f";
                     break;
                     case 7:
-                    $color="#f0b27a";//Brown
+                    $color="#f0b27a";
                     break;
                     case 8:
-                    $color="#d7dbdd";//Orange
+                    $color="#d7dbdd";
                     break;
                     case 9:
-                    $color="#d6eaf8";//Gray
+                    $color="#d6eaf8";
                     break;
                     case 10:
-                    $color="#f2d7d5";//Blue
+                    $color="#f2d7d5";
                     break;
                     default:
-                    $color="#a2d9ce";//Green
+                    $color="#a2d9ce";
                 }  
             }
-
-            // $color = "FFFFFF";
-
             $query = "INSERT INTO chatlog (message, sent_by, date_created, username, color) VALUES(?, ?, ?, ?, ?)"; //Prepared SQL query that inserts data into database
             $stmt = $db->prepare($query);
             $stmt->bind_param('ssiss', $message, $session_id, $currentTime, $userName, $color); 

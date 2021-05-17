@@ -15,7 +15,7 @@ var pollServer = function() {
                               this.username + ": " + this.message +    //Displays the username and message in the chatbubble 
                                '</div><div class="clearfix"></div>');
             } else {
-                chatBubble = $('<div class="row bubble-recv" style="background-color: '+ this.color + ';">' + 
+                chatBubble = $('<div class="row bubble-recv" style="background-color: '+ this.color + ';">' + //Get's background color based on color value in database
                                this.username + ": " + this.message +   //Displays the username and message in the chatbubble
                                '</div><div class="clearfix"></div>');
             }

@@ -1,7 +1,7 @@
 # CPSC 431-01, Spring 2021 - Assignment 3
 ## Project By: 
-* Adam Laviguer | adamlaviguer@csu.fullerton.edu
-* Hammda Qureshi | qureshi434@csu.fullerton.edu
+* Adam Laviguer | adamlaviguer@csu.fullerton.edu | CWID: 888178654
+* Hammda Qureshi | qureshi434@csu.fullerton.edu | CWID: 889820759
 
 ## Link to Web-App:
 [Assignment3] (http://ecs.fullerton.edu/~cs431s1/A3/)

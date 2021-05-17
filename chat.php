@@ -63,61 +63,52 @@ try {
             $message = isset($_POST['message']) ? $_POST['message'] : '';            
             $message = strip_tags($message);
 
-            // function ArrayData() {
-            //     $findUserQuery = "SELECT username, color FROM chatlog WHERE username = $userName";
+            $findUserQuery = "SELECT username, color FROM chatlog WHERE username = '".$userName."'";
+            $queryResult = $db->query($findUserQuery);
 
-            //     $largeArr = array();
-            //     //Look through each row in the table
-            //     while($itemRow = mysqli_fetch_assoc($findUserQuery)){
-            //       //Adds each row into the array
-            //       $largeArr[] = $itemRow;
-            //     }
-            //     return $largeArr;
-            //   }
+            if ($queryResult->num_rows > 0) {
+                $row = $queryResult->fetch_assoc();
+                $color = $row["color"];
+            }
+            else {
+                $randomNum = rand(1,10); // random number from 1 to 10
+                switch($randomNum){
+                    case 1:
+                    $color="000000"; // black
+                    break;
+                    case 2: 
+                    $color="000080";//Navy
+                    break;
+                    case 3:
+                    $color="800080";//Purple
+                    break;
+                    case 4:
+                    $color="00FFFF";//Aqua
+                    break;
+                    case 5:
+                    $color="FFFF00";//Yellow
+                    break;
+                    case 6:
+                    $color="008080";//Teal
+                    break;
+                    case 7:
+                    $color="A52A2A";//Brown
+                    break;
+                    case 8:
+                    $color="FFA500";//Orange
+                    break;
+                    case 9:
+                    $color="CCCCCC";//Gray
+                    break;
+                    case 10:
+                    $color="0000FF";//Blue
+                    break;
+                    default:
+                    $color="00FF00";//Green
+                }  
+            }
 
-            // if (ArrayData()) {
-            //     $array = ArrayData();
-            //     $color = $array[1qw]['color'];    
-            // }
-            // else {
-  
-            // }
-
-            $randomNum = rand(1,10); // random number from 1 to 10
-            switch($randomNum){
-                case 1:
-                $color="000000"; // black
-                break;
-                case 2: 
-                $color="000080";//Navy
-                break;
-                case 3:
-                $color="800080";//Purple
-                break;
-                case 4:
-                $color="00FFFF";//Aqua
-                break;
-                case 5:
-                $color="FFFF00";//Yellow
-                break;
-                case 6:
-                $color="008080";//Teal
-                break;
-                case 7:
-                $color="A52A2A";//Brown
-                break;
-                case 8:
-                $color="FFA500";//Orange
-                break;
-                case 9:
-                $color="CCCCCC";//Gray
-                break;
-                case 10:
-                $color="0000FF";//Blue
-                break;
-                default:
-                $color="00FF00";//Green
-            }  
+            // $color = "FFFFFF";
 
             $query = "INSERT INTO chatlog (message, sent_by, date_created, username, color) VALUES(?, ?, ?, ?, ?)";
             $stmt = $db->prepare($query);

@@ -57,11 +57,11 @@ try {
            ]);
            exit;
         case 'send':
-            $userName = isset($_POST['userName']) ? $_POST['userName'] : '';
-            $userName = strip_tags($userName); 
+            $userName = isset($_POST['userName']) ? $_POST['userName'] : ''; //Get the username from the userName form
+            $userName = strip_tags($userName); //Strips and HTML and PHP tags from string
 
-            $message = isset($_POST['message']) ? $_POST['message'] : '';            
-            $message = strip_tags($message);
+            $message = isset($_POST['message']) ? $_POST['message'] : ''; //Get the message from the message form           
+            $message = strip_tags($message); //Strips and HTML and PHP tags from string
 
             $findUserQuery = "SELECT username, color FROM chatlog WHERE username = '".$userName."'";
             $queryResult = $db->query($findUserQuery);
@@ -110,7 +110,7 @@ try {
 
             // $color = "FFFFFF";
 
-            $query = "INSERT INTO chatlog (message, sent_by, date_created, username, color) VALUES(?, ?, ?, ?, ?)";
+            $query = "INSERT INTO chatlog (message, sent_by, date_created, username, color) VALUES(?, ?, ?, ?, ?)"; //Prepared SQL query that inserts data into database
             $stmt = $db->prepare($query);
             $stmt->bind_param('ssiss', $message, $session_id, $currentTime, $userName, $color); 
             $stmt->execute(); 

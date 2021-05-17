@@ -12,11 +12,11 @@ var pollServer = function() {
             
             if(this.sent_by == 'self') {
                 chatBubble = $('<div class="row bubble-sent pull-right">' + 
-                              this.username + ": " + this.message + 
+                              this.username + ": " + this.message +    //Displays the username and message in the chatbubble 
                                '</div><div class="clearfix"></div>');
             } else {
                 chatBubble = $('<div class="row bubble-recv" style="background-color: '+ this.color + ';">' + 
-                               this.username + ": " + this.message + 
+                               this.username + ": " + this.message +   //Displays the username and message in the chatbubble
                                '</div><div class="clearfix"></div>');
             }
             
@@ -35,7 +35,7 @@ $(document).on('ready', function() {
     });
 });
 
-$(document).ready(function(){
+$(document).ready(function(){ //When the user clicks the start button it will hide the username form and show the chat message form
     $("#startBtn").click(function(){
         $("#myUser").hide();
     });
@@ -44,7 +44,7 @@ $(document).ready(function(){
     });
 });
 
-$('#sendMessageBtn').on('click', function(event) {
+$('#sendMessageBtn').on('click', function(event) { //Both the message and username are passed from the chat.html to the chat.php file. This function acts as a bridge between the two files.
     event.preventDefault();
     
     var message = $('#chatMessage').val();
@@ -55,7 +55,7 @@ $('#sendMessageBtn').on('click', function(event) {
         'userName' : userName
     }, function(result) {
         
-        $('#sendMessageBtn').toggleClass('active');
+        $('#sendMessageBtn').toggleClass('active'); //When the send message button is clicked the message and username are sent to chat.php
           
         if(!result.success) {
             alert("There was an error sending your message");

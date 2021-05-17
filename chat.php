@@ -74,37 +74,37 @@ try {
                 $randomNum = rand(1,10); // random number from 1 to 10
                 switch($randomNum){
                     case 1:
-                    $color="000000"; // black
+                    $color="#d98880"; // black
                     break;
                     case 2: 
-                    $color="000080";//Navy
+                    $color="#c39bd3";//Navy
                     break;
                     case 3:
-                    $color="800080";//Purple
+                    $color="#7fb3d5";//Purple
                     break;
                     case 4:
-                    $color="00FFFF";//Aqua
+                    $color="#76d7c4";//Aqua
                     break;
                     case 5:
-                    $color="FFFF00";//Yellow
+                    $color="#7dcea0";//Yellow
                     break;
                     case 6:
-                    $color="008080";//Teal
+                    $color="#f7dc6f";//Teal
                     break;
                     case 7:
-                    $color="A52A2A";//Brown
+                    $color="#f0b27a";//Brown
                     break;
                     case 8:
-                    $color="FFA500";//Orange
+                    $color="#d7dbdd";//Orange
                     break;
                     case 9:
-                    $color="CCCCCC";//Gray
+                    $color="#d6eaf8";//Gray
                     break;
                     case 10:
-                    $color="0000FF";//Blue
+                    $color="#f2d7d5";//Blue
                     break;
                     default:
-                    $color="00FF00";//Green
+                    $color="#a2d9ce";//Green
                 }  
             }
 
